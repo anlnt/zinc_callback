@@ -13,6 +13,8 @@ class ResultsController < ApplicationController
     Rails.logger.info "---------------"
     Rails.logger.info "ZINC signature: #{request.headers.env['HTTP_X_ZINC_WEBHOOK_SIGNATURE']}"
     Rails.logger.info "---------------"
+    Rails.logger.info "HTTP_X_FORWARDED_FOR: #{request.headers.env['HTTP_X_FORWARDED_FOR']}"
+    Rails.logger.info "remote_ip: #{request.remote_ip}"
     Rails.logger.info "zinc_callback - END"
     render json: { time: Time.now, ok: true }
   end
